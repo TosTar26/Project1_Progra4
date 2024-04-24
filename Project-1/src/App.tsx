@@ -15,17 +15,32 @@ console.log(data)
  },[])
   return (
     <>
-    <th>
-    <th>Id</th>
-        <th>Producto</th>
-        <th>Categoria</th>
+   <table>
+    <thead>
+      <tr>
+        <th>Id</th>
         <th>Precio</th>
+        <th>Titulo</th>
+        <th>Categoria</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
     {data?.map((item:any) => (
       <>
-      <tr>{item.id}</tr>
+      <tr>
+      <td>{item.id}</td>
+      <td>{item.price}</td>
+      <td>{item.title}</td>
+      <td>{item.category}</td>
+      <td><button>Editar</button>
+      <button>Eiminar</button></td>
+      <button>VerProducto</button>
+      </tr>
       </>
       ))}
-      </th>
+    </tbody>
+   </table>
     </>
   )
 }
