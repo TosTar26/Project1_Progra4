@@ -8,24 +8,24 @@ function App() {
 
 
  useEffect(() => {
-fetch('https://reqres.in/api/users')
+fetch('https://fakestoreapi.com/products')
 .then((response) => response.json())
-.then((data) => setData(data.data))
+.then((data) => setData(data))
 console.log(data)
  },[])
   return (
     <>
+    <th>
+    <th>Id</th>
+        <th>Producto</th>
+        <th>Categoria</th>
+        <th>Precio</th>
     {data?.map((item:any) => (
       <>
-      <tr> 
-      <th><img src={item.avatar}></img></th>
-     <th><p>{item.id}</p></th>
-     <th><h1>{item.first_name}</h1></th> 
-     <th><h1>{item.email}</h1></th>
-      </tr>
-      
+      <tr>{item.id}</tr>
       </>
       ))}
+      </th>
     </>
   )
 }
