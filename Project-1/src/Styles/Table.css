@@ -1,0 +1,57 @@
+body{
+    background-color: black;
+}
+
+.table-container {
+    background-color: rgb(27, 19, 19);
+    color: white;
+    /* Estilos generales de la tabla */
+    width: 100%;
+    border-collapse: separate; /* Separación de bordes */
+    border-spacing: 0 15px; 
+  }
+  
+  .header-columns th {
+    /* Estilos para las celdas de encabezado */
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+    padding: 8px;
+    color: black;
+  }
+  
+  .column-id {
+    width: 20%; /* Ancho para la columna Id */
+  }
+  
+  .column-price {
+    width: 20%; /* Ancho para la columna Precio */
+  }
+  
+  .column-title {
+    width: 20%; /* Ancho para la columna Título */
+  }
+  
+  .column-category {
+    width: 20%; /* Ancho para la columna Categoría */
+  }
+  
+  .column-actions {
+    width: 95%; /* Ancho para la columna Acciones */
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 5px;
+}
+  
+.body-rows{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+td{
+  background-color: black ;
+  border: 1px solid white;
+}
+
