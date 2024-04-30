@@ -28,6 +28,8 @@ const Products = () => {
                                 <button type='button'>Ver Producto</button>
                                 <button type='button' >Eliminar</button>
                                 <button type='button'> Modificar </button>
+
+                                
                             </td>
                         </tr>
                     ))}
