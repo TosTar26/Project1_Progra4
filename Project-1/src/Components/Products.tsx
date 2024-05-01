@@ -1,7 +1,10 @@
+import { Link } from 'react-router-dom'
 import UseProducts from '../Hooks/UseProducts'
+import useFunctions from '../Hooks/useFunctions'
 
 const Products = () => {
     const {error, data, loading} = UseProducts()
+    const {VerProducto} = useFunctions()
   return (
     <>
      {error && <h1>Error</h1>}
@@ -25,7 +28,7 @@ const Products = () => {
                             <td>{item.title}</td>
                             <td>{item.category}</td>
                             <td className='column-actions'>
-                                <button type='button'>Ver Producto</button>
+                                <button type='button'><Link onClick={() => VerProducto(item.id)} to='/ViewProduct'>Ver Producto</Link></button>
                                 <button type='button' >Eliminar</button>
                                 <button type='button'> Modificar </button>
 
