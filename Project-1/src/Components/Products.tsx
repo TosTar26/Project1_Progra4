@@ -1,14 +1,16 @@
-import { Link } from 'react-router-dom'
-import UseProducts from '../Hooks/UseProducts'
-import useFunctions from '../Hooks/useFunctions'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import useProducts from '../Hooks/UseProducts';
+import useFunctions from '../Hooks/useFunctions';
 
 const Products = () => {
-    const {error, data, loading} = UseProducts()
-    const {VerProducto} = useFunctions()
-  return (
-    <>
-     {error && <h1>Error</h1>}
-            {loading && <h1>Is loading...</h1>}
+    const { error, data, loading } = useProducts();
+    const { VerProducto } = useFunctions();
+
+    return (
+        <>
+            {error && <h1>Error</h1>}
+            {loading && <h1>Loading...</h1>}
             <button>Agregar Producto</button>
             <table className='table-container'>
                 <thead>
@@ -21,25 +23,23 @@ const Products = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data?.map((item:any) => (
+                    {data?.map((item: any) => (
                         <tr key={item.id}>
                             <td>{item.id}</td>
                             <td>{item.price}</td>
                             <td>{item.title}</td>
-                            <td>{item.category}</td>
+                            <td>{item.category.name}</td>
                             <td className='column-actions'>
-                                <button type='button'><Link onClick={() => VerProducto(item.id)} to='/ViewProduct'>Ver Producto</Link></button>
-                                <button type='button' >Eliminar</button>
-                                <button type='button'> Modificar </button>
-
-                                
+                                <Link to='/ViewProduct' onClick={() => VerProducto(item.id)}>Ver Producto</Link>
+                                <Link to='/EditProduct' onClick={() => VerProducto(item.id)}>Editar</Link>
+                                <button type='button'>Modificar</button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-    </>
-  )
+        </>
+    );
 }
 
-export default Products
+export default Products;

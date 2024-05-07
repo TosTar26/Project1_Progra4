@@ -4,6 +4,7 @@ import './App.css'
 import MyProvider from './Context/MyContextProvider'
 import { Route, Routes } from 'react-router-dom'
 import ViewProducts from './Components/ViewProducts'
+import EditProduct from './Components/EditProduct'
 
 function App() {
  
@@ -13,6 +14,7 @@ function App() {
    <Routes>
     <Route path='/' element={<Products/>}/>
     <Route path='/ViewProduct' element={<ViewProducts/>}/>
+    <Route path='/EditProduct' element={<EditProduct/>}/>
    </Routes>
    </MyProvider>
     </>

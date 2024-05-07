@@ -12,7 +12,7 @@ const useViewProducts = () => {
     const usegetProductsbyid = async () => {
         try{
           setLoading(true);
-          const respuesta = await fetch(`https://fakestoreapi.com/products/${productId}`);
+          const respuesta = await fetch(`https://api.escuelajs.co/api/v1/products/${productId}`);
           const data = await respuesta.json();
           setProduct(data);
         } catch{
