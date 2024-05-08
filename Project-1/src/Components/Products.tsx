@@ -35,7 +35,7 @@ const Products = () => {
                             <td className='column-actions'>
                                 <Link to='/ViewProduct' onClick={() => VerProducto(item.id)}>Ver Producto <img className='eliminar-img' src='./src/assets/leer.png'></img></Link>
                                 <Link to='/EditProduct' onClick={() => VerProducto(item.id)}>Editar <img className='editar-img' src='./src/assets/editar.png'></img></Link>
-                                <Link to='/'>Eliminar<img className='eliminar-img' src='./src/assets/eliminar.png'></img></Link>
+                                <Link to='/EliminarProduct' onClick={() => VerProducto(item.id)}>Eliminar <img className='eliminar-img' src='./src/assets/eliminar.png'></img></Link>
                             </td>
                         </tr>
                     ))}

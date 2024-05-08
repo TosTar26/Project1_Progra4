@@ -1,12 +1,12 @@
 import  { useContext, useState } from 'react'
 import MyContext from '../Context/MyContext'
+import useDleteProduct from './useDeleteProducts';
+import { useNavigate } from 'react-router-dom';
 
-const useFunctions = (initialProduct: Products, updateData: Function, navigate: Function,) => {
+const useFunctions = (initialProduct: Products, updateData: Function,) => {
 const {setProductId} = useContext(MyContext);
-
-const VerProducto = (productId : number) => {
-setProductId(productId);
-}
+const {deleteData} = useDleteProduct()
+const navigate = useNavigate()
 
 const Navigate = () => {
   navigate('/')
@@ -33,10 +33,24 @@ const Navigate = () => {
       }
   };
 
- 
+  const VerProducto = (productId : number) => {
+    setProductId(productId);
+    }
+
+    const handleDelete = async () => {
+        if (window.confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+            try {
+                await deleteData();
+                console.log('Producto eliminado correctamente');
+                navigate('/');
+            } catch (error) {
+                console.error('Error al eliminar el producto:', error);
+            }
+        }
+    };
 
  return {
-    VerProducto, handleSubmit, handleChange, formData, Navigate
+    VerProducto, handleSubmit, handleChange, formData, Navigate, handleDelete
  }
 }
 
