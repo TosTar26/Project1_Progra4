@@ -9,9 +9,12 @@ const Products = () => {
 
     return (
         <>
+        <div className='container'>
+
             {error && <h1>Error</h1>}
             {loading && <h1>Loading...</h1>}
-            <button>Agregar Producto</button>
+            <button className='btn-agregar'>Agregar Producto <img className='crear-img
+            ' src='./src/assets/Crear.png'></img></button>
             <table className='table-container'>
                 <thead>
                     <tr className='header-columns'>
@@ -30,14 +33,15 @@ const Products = () => {
                             <td>{item.title}</td>
                             <td>{item.category.name}</td>
                             <td className='column-actions'>
-                                <Link to='/ViewProduct' onClick={() => VerProducto(item.id)}>Ver Producto</Link>
-                                <Link to='/EditProduct' onClick={() => VerProducto(item.id)}>Editar</Link>
-                                <button type='button'>Modificar</button>
+                                <Link to='/ViewProduct' onClick={() => VerProducto(item.id)}>Ver Producto <img className='eliminar-img' src='./src/assets/leer.png'></img></Link>
+                                <Link to='/EditProduct' onClick={() => VerProducto(item.id)}>Editar <img className='editar-img' src='./src/assets/editar.png'></img></Link>
+                                <Link to='/'>Eliminar<img className='eliminar-img' src='./src/assets/eliminar.png'></img></Link>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+        </div>
         </>
     );
 }

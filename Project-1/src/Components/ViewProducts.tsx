@@ -1,4 +1,3 @@
-import React from 'react';
 import useViewProducts from '../Hooks/useViewProducts';
 import { Link } from 'react-router-dom';
 

@@ -5,6 +5,7 @@ import MyProvider from './Context/MyContextProvider'
 import { Route, Routes } from 'react-router-dom'
 import ViewProducts from './Components/ViewProducts'
 import EditProduct from './Components/EditProduct'
+import './Styles/Form.css'
 
 function App() {
  

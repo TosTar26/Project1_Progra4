@@ -1,8 +1,7 @@
 import  { useContext, useState } from 'react'
 import MyContext from '../Context/MyContext'
-import { useNavigate } from 'react-router-dom';
 
-const useFunctions = (initialProduct: Products, updateData: Function, navigate: Function) => {
+const useFunctions = (initialProduct: Products, updateData: Function, navigate: Function,) => {
 const {setProductId} = useContext(MyContext);
 
 const VerProducto = (productId : number) => {
@@ -13,7 +12,7 @@ const Navigate = () => {
   navigate('/')
 }
 
-  const [formData, setFormData] = useState<Products>(initialProduct || { title: "", price: 0, category: "", description: "" });
+  const [formData, setFormData] = useState<Products>(initialProduct || { title: "", price: 0, category: "", description: "", images: ""});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -34,6 +33,7 @@ const Navigate = () => {
       }
   };
 
+ 
 
  return {
     VerProducto, handleSubmit, handleChange, formData, Navigate

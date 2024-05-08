@@ -8,7 +8,7 @@ const useEditProduct = () => {
 
     const updateData = async (updatedData :any) => {
         setLoading(true);
-        setError(null);
+        setError(error);
         try {
             const response = await fetch(`https://api.escuelajs.co/api/v1/products/${productId}`, {
                 method: 'PUT',

@@ -1,7 +1,6 @@
 import  { useEffect, useState } from 'react'
 
 const UseProducts = () => {
-
     const [data, setData] = useState([])
     const [error, setError] = useState(false);
     const [loading ,setLoading] = useState(false);
