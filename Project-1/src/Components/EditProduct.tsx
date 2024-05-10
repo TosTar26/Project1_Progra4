@@ -93,7 +93,7 @@ const EditProductForm: React.FC<Products> = ({ initialProduct }) => {
                 </div>
                            <div className='button-container'>
                 <button type="submit">Guardar Cambios</button>
-                <button onClick={() => navigate('/')}>Cancelar</button>
+                <button className='btn-Cancel' onClick={() => navigate('/')}>Cancelar</button>
                            </div>
             </form>
         </div>

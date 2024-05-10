@@ -10,7 +10,6 @@ const DeleteProduct: React.FC<Products> = () => {
     return (
         <div>
             <div className='button-container'>
-                <button type="submit">Guardar Cambios</button>
                 <button onClick={handleDelete}>Eliminar Producto</button>
                 <button onClick={() => navigate('/')}>Cancelar</button>
             </div>
