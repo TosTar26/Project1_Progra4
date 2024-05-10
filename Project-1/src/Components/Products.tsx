@@ -13,7 +13,7 @@ const Products = () => {
 
             {error && <h1>Error</h1>}
             {loading && <h1>Loading...</h1>}
-            <button className='btn-agregar'>Agregar Producto <img className='crear-img
+            <button className='btn-agregar'><Link to='/AddProduct'>Agregar Producto</Link> <img className='crear-img
             ' src='./src/assets/Crear.png'></img></button>
             <table className='table-container'>
                 <thead>
