@@ -33,9 +33,9 @@ const Products = () => {
                             <td>{item.title}</td>
                             <td>{item.category.name}</td>
                             <td className='column-actions'>
-                                <Link to='/ViewProduct' onClick={() => VerProducto(item.id)}>Ver Producto <img className='eliminar-img' src='./src/assets/leer.png'></img></Link>
-                                <Link to='/EditProduct' onClick={() => VerProducto(item.id)}>Editar <img className='editar-img' src='./src/assets/editar.png'></img></Link>
-                                <Link to='/EliminarProduct' onClick={() => VerProducto(item.id)}>Eliminar <img className='eliminar-img' src='./src/assets/eliminar.png'></img></Link>
+                                <Link className='btn-view' to='/ViewProduct' onClick={() => VerProducto(item.id)}>Ver Producto <img className='eliminar-img' src='./src/assets/leer.png'></img></Link>
+                                <Link className='btn-view' to='/EditProduct' onClick={() => VerProducto(item.id)}>Editar <img className='editar-img' src='./src/assets/editar.png'></img></Link>
+                                <Link className='btn-view' to='/EliminarProduct' onClick={() => VerProducto(item.id)}>Eliminar <img className='eliminar-img' src='./src/assets/eliminar.png'></img></Link>
                             </td>
                         </tr>
                     ))}

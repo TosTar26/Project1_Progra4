@@ -40,6 +40,8 @@ span{
   .button-container {
     text-align: center;
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
   }
   
   .button-container button {
@@ -89,3 +91,7 @@ span{
     color: white;
   }
   
+  .container-description{
+    width: auto;
+    height: 200px;
+  }
