@@ -4,6 +4,6 @@ type Products = {
     id:number,
     description: string,
     category: string,
-    image: string,
-    rating: any
+    images: string,
+    initialProduct: Products;
 }

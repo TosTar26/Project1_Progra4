@@ -1,0 +1,32 @@
+span{
+    color: red;
+    font-size: small;
+  }
+
+  form{
+height: auto;
+width: auto;
+background-color: beige;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 15px;
+  }
+
+  .Form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+.button-container{
+display: flex;
+flex-direction: row;
+justify-content: center;
+gap: 20px;
+  }

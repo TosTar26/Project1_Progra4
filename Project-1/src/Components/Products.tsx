@@ -1,15 +1,20 @@
-import { Link } from 'react-router-dom'
-import UseProducts from '../Hooks/UseProducts'
-import useFunctions from '../Hooks/useFunctions'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import useProducts from '../Hooks/UseProducts';
+import useFunctions from '../Hooks/useFunctions';
 
 const Products = () => {
-    const {error, data, loading} = UseProducts()
-    const {VerProducto} = useFunctions()
-  return (
-    <>
-     {error && <h1>Error</h1>}
-            {loading && <h1>Is loading...</h1>}
-            <button>Agregar Producto</button>
+    const { error, data, loading } = useProducts();
+    const { VerProducto } = useFunctions();
+
+    return (
+        <>
+        <div className='container'>
+
+            {error && <h1>Error</h1>}
+            {loading && <h1>Loading...</h1>}
+            <button className='btn-agregar'>Agregar Producto <img className='crear-img
+            ' src='./src/assets/Crear.png'></img></button>
             <table className='table-container'>
                 <thead>
                     <tr className='header-columns'>
@@ -21,25 +26,24 @@ const Products = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data?.map((item:any) => (
+                    {data?.map((item: any) => (
                         <tr key={item.id}>
                             <td>{item.id}</td>
                             <td>{item.price}</td>
                             <td>{item.title}</td>
-                            <td>{item.category}</td>
+                            <td>{item.category.name}</td>
                             <td className='column-actions'>
-                                <button type='button'><Link onClick={() => VerProducto(item.id)} to='/ViewProduct'>Ver Producto</Link></button>
-                                <button type='button' >Eliminar</button>
-                                <button type='button'> Modificar </button>
-
-                                
+                                <Link to='/ViewProduct' onClick={() => VerProducto(item.id)}>Ver Producto <img className='eliminar-img' src='./src/assets/leer.png'></img></Link>
+                                <Link to='/EditProduct' onClick={() => VerProducto(item.id)}>Editar <img className='editar-img' src='./src/assets/editar.png'></img></Link>
+                                <Link to='/EliminarProduct' onClick={() => VerProducto(item.id)}>Eliminar <img className='eliminar-img' src='./src/assets/eliminar.png'></img></Link>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-    </>
-  )
+        </div>
+        </>
+    );
 }
 
-export default Products
+export default Products;
