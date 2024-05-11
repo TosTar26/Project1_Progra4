@@ -3,10 +3,21 @@ import MyContext from '../Context/MyContext'
 import useDleteProduct from './useDeleteProducts';
 import { useNavigate } from 'react-router-dom';
 
-const useFunctions = (initialProduct: Products, updateData: Function) => {
+const useFunctions = (initialProduct: Products, updateData: Function, initialValue: "") => {
 const {setProductId} = useContext(MyContext);
 const {deleteData} = useDleteProduct()
 const navigate = useNavigate()
+const [filterByName, setFilterByName] = useState(initialValue);
+
+    const handleNameFilterChange = (event : any) => {
+        setFilterByName(event.target.value);
+    };
+
+    const filterProductsByName = (products : any) => {
+        return products.filter((item : any) =>
+            item.title.toLowerCase().includes(filterByName.toLowerCase())
+        );
+    };
 
 const Navigate = () => {
   navigate('/')
@@ -50,7 +61,7 @@ const Navigate = () => {
     };
 
  return {
-    VerProducto, handleSubmit, handleChange, formData, Navigate, handleDelete
+    VerProducto, handleSubmit, handleChange, formData, Navigate, handleDelete, handleNameFilterChange, filterProductsByName, filterByName
  }
 }
 
