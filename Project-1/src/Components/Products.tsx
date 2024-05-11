@@ -16,8 +16,7 @@ const Products = () => {
         const pageSize = 22;
     const { getPageData, error, loading } = useProducts(pageSize);
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const { VerProducto} = useFunctions();
-
+    const { VerProducto, handleNameFilterChange, filterByName, filterProductsByName} = useFunctions();
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
@@ -31,8 +30,20 @@ const Products = () => {
 
             {error && <h1>Error</h1>}
             {loading && <h1>Loading...</h1>}
-            <button className='btn-agregar'><Link to='/AddProduct'>Agregar Producto</Link> <img className='crear-img
-            ' src='./src/assets/Crear.png'></img></button>
+            <div className='container-pag'>
+                <button className='btn-agregar'><Link to='/AddProduct'>Agregar Producto</Link> <img className='crear-img
+                ' src='./src/assets/Crear.png'></img></button>
+            <div className="filter-container">
+                    <input className='inp-filter'
+                        type="text"
+                        placeholder="Buscar por nombre"
+                        value={filterByName}
+                        onChange={handleNameFilterChange}
+                    />
+                </div>
+                
+            </div>
+
             <table className='table-container'>
                 <thead>
                     <tr className='header-columns'>
