@@ -1,30 +1,35 @@
-import  { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
-const UseProducts = () => {
-    const [data, setData] = useState([])
-    const [error, setError] = useState(false);
-    const [loading ,setLoading] = useState(false);
+const useProducts = (pageSize: number) => {
+    const [data, setData] = useState<any[]>([]);
+    const [error, setError] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
- useEffect(() => {
-fetching()
- },[])
-const fetching = async () => {
-    try{
-        setLoading(true);
-        const respuesta = await fetch('https://api.escuelajs.co/api/v1/products')
-        const datos = await respuesta.json()
-        setData(datos);
-    } catch{
-setError(error);
-console.log("Error");
-    }
-    finally{
-        setLoading(false)
-    }
-}
+    useEffect(() => {
+        const fetching = async () => {
+            try {
+                setLoading(true);
+                const response = await fetch(`https://api.escuelajs.co/api/v1/products`);
+                const responseData = await response.json();
+                setData(responseData);
+            } catch (error) {
+                setError(true);
+                console.log("Error fetching products:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-  return {
-data, error, loading
-  }
-}
-export default UseProducts
+        fetching();
+    }, []);
+
+    const getPageData = (page: number): any[] => {
+        const startIndex = (page - 1) * pageSize;
+        const endIndex = startIndex + pageSize;
+        return data.slice(startIndex, endIndex);
+    };
+
+    return { getPageData, error, loading };
+};
+
+export default useProducts;

@@ -75,7 +75,7 @@ const EditProductForm: React.FC<Products> = ({ initialProduct }) => {
                 <label>
                     Descripcion:
                 </label>
-                    <input type="text" {...register('description', {
+                    <input className='container-description' type="text" {...register('description', {
                           required: {
                             value: true,
                             message: "Requerido"
@@ -90,11 +90,11 @@ const EditProductForm: React.FC<Products> = ({ initialProduct }) => {
                         }
                     })} />
                            {errors.description && <span>{errors.description.message}</span>}
-                </div>
                            <div className='button-container'>
                 <button type="submit">Guardar Cambios</button>
-                <button onClick={() => navigate('/')}>Cancelar</button>
+                <button className='btn-Cancel' onClick={() => navigate('/')}>Cancelar</button>
                            </div>
+                </div>
             </form>
         </div>
     );

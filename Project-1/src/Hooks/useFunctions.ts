@@ -3,7 +3,7 @@ import MyContext from '../Context/MyContext'
 import useDleteProduct from './useDeleteProducts';
 import { useNavigate } from 'react-router-dom';
 
-const useFunctions = (initialProduct: Products, updateData: Function,) => {
+const useFunctions = (initialProduct: Products, updateData: Function) => {
 const {setProductId} = useContext(MyContext);
 const {deleteData} = useDleteProduct()
 const navigate = useNavigate()
