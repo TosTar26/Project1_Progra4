@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useProducts from '../Hooks/UseProducts';
 import useFunctions from '../Hooks/useFunctions';
+import useFilterByName from '../Hooks/useFilter';
 
 const Products = () => {
-    const { error, data, loading } = useProducts();
-    const { VerProducto } = useFunctions();
+                   /* <input
+                        type="text"
+                        placeholder="Buscar por nombre"
+                        value={filterByName}
+                        onChange={handleNameFilterChange}
+                    />
+            <div className="filter-container">
+                </div>*/
+        const pageSize = 22;
+    const { getPageData, error, loading } = useProducts(pageSize);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const { VerProducto} = useFunctions();
+
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
+
+    const pageData = getPageData(currentPage);
 
     return (
         <>
@@ -26,7 +44,7 @@ const Products = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data?.map((item: any) => (
+                    {pageData?.map((item: any) => (
                         <tr key={item.id}>
                             <td>{item.id}</td>
                             <td>{item.price}</td>
@@ -41,6 +59,13 @@ const Products = () => {
                     ))}
                 </tbody>
             </table>
+            <div className='container-buttons'>
+                {[1, 2, 3, 4].map((page) => (
+                    <button key={page} onClick={() => handlePageChange(page)}>
+                         {page}
+                    </button>
+                ))}
+            </div>
         </div>
         </>
     );
